@@ -14,6 +14,7 @@
     <h1>Portfolio of Amber Cruse</h1>
     <div class="container px-4 py-5" id="featured-3">
         <h3 class="pb-2 border-bottom">Previous Work</h3>
+        <h3 class="pb-2 border-bottom">Web Design</h3>
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
           <div class="feature col">
             <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
@@ -42,6 +43,41 @@
             <h3 class="fs-2 text-body-emphasis">SCP Blog</h3>
             <p>This is a mockup blog for someone tracking SCP activity in their neighborhood. It is not meant to be taken seriously.</p>
             <a href="#" class="icon-link">
+              Check it out here!
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container px-4 py-5" id="featured-3">
+        <h3 class="pb-2 border-bottom">Copywriting</h3>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+              <img src="./images/filetype-pdf.svg" height="70">
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Mr. Clean Spin Mop</h3>
+            <p>This is a mockup ad for a mop.</p>
+            <a href="./mockup mop (1).pdf" class="icon-link">
+                Check it out here!
+            </a>
+          </div>
+          <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+                <img src="./images/filetype-pdf.svg" height="70">
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Not Yet Named</h3>
+            <p>This is a mockup.</p>
+            <a href="#" class="icon-link">
+                Check it out here!
+            </a>
+          </div>
+          <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
+              <img src="./images/filetype-pdf.svg" height="90">
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Not Yet Named</h3>
+            <p>This is a mockup.</p>
+            <a href="./" class="icon-link">
               Check it out here!
             </a>
           </div>
