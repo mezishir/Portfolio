@@ -1,61 +1,59 @@
-h1 {
-    text-align: center;
-    font-family: tapestry;
-    font-size: 2.5em;
+h1 { 
+    font-family: "Miss Fajardose";
+    font-size: 20vw;
+    animation: 3s linear 1s infinite running slide-in;
 }
 h2 {
-    font-family: Playfair Display;
-    font-size: 30px;
-    text-align: center;
+    font-family: "New Rocker";
+    position: relative;
 }
-h3 {
-    font-family: Playfair Display;
-    font-size: 20px;
-    text-align: center;
-}
-p {
-    font-family: quicksand;
-    text-align: center;
-}
+
 body {
-    background-image: linear-gradient(#0863bf, #b8edf9);
-}
-.footertext {
-    font-size: 12px;
-    padding-top: 80px
-}
-.copyright {
-    font-size: 14px;
+    background-color: black;
     text-align: center;
+    color: white;
+    background-image: url(./images/teller.jpg);
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
 }
 
-/*text formatting*/
+.logo {
+    height: 10vw;
+}
 
-.tapestry-regular {
-    font-family: "Tapestry", serif;
-    font-weight: 400;
-    font-style: normal;
-  }
+/* Text Formatting */
 
-.playfair-display> {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
+.miss-fajardose-regular {
+  font-family: "Miss Fajardose", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.new-rocker-regular {
+  font-family: "New Rocker", system-ui;
   font-weight: 400;
   font-style: normal;
 }
 
-
-.quicksand> {
-  font-family: "Quicksand", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
+.gradient-text {
+   background: linear-gradient(to right, #4c4b4d, #45209c);
+    background-clip: text;
+    color: transparent;
 }
+
+@keyframes slide-in {
+0%, 100% { opacity: 0; }
+50% { opacity: 1; } 
+
+}
+
+/*Div formatting*/
+
 
 
 /*image formatting inside containers*/
 
-.container {
+/* .container {
   display: flex;
   gap: 5px;
   margin-bottom: 20px;
@@ -77,4 +75,4 @@ body {
     grid-column-start: 1;
     grid-row-start: 1;
     grid-row-end: 4;
-}
+} */
