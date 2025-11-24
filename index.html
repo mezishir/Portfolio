@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="./styles.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amber Cruse | Web Designer</title>
+        <title>Amber Cruse | Web Designer</title>
+        
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
+        <link rel="manifest" href="./favicon/site.webmanifest">
+        
+        <link rel="stylesheet" href="./styles.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand&family=Tapestry&display=swap" rel="stylesheet">
 
     </head>
 <body>
-  <section class="hero">
-    <div class="hero-content">
+  <nav class="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">Amber Cruse</a>
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#web-design">Web Design</a></li>
+        <li><a href="#school-projects">School Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
       <h1>Amber Cruse</h1>
       <h2 class="subtitle">Web Design & Creative Works</h2>
       <div class="personal-image">
@@ -20,17 +40,18 @@
       </div>
       <p class="hero-intro">Welcome to my portfolio! I'm Amber, a creative web designer passionate about building beautiful, functional websites and digital experiences. Explore my work and get to know my journey.</p>
     </div>
-  </section>
-    <div>
-        <h2>Web Design</h2>
-  <div class="container web-design-grid">
+    </section>
+
+    <section id="web-design" class="projects-section">
+      <h2>Web Design</h2>
+      <div class="container web-design-grid">
           <div class="card">
             <div class="img">
               <img src="./images/siroliverslogo.jpg" height="70" >
             </div>
             <h3>Sir Oliver's Customs</h3>
             <p>Sir Oliver's Customs offer a variety of custom art jobs from painting tabletop miniatures to repairing quilts.</p>
-            <a href="www.siroliverscustoms.com">
+            <a href="https://www.siroliverscustoms.com">
                 Check it out here!
             </a>
           </div>
@@ -56,9 +77,11 @@
           </div>
         </div>
       </div>
-      <div>
-        <h2>School Projects</h2>
-        <div class="container card-grid">
+    </section>
+
+    <section id="school-projects" class="projects-section">
+      <h2>School Projects</h2>
+      <div class="container card-grid">
           <div class="card">
             <div class="img">
               <img src="./images/intel-header-logo.svg" height="70">
@@ -111,15 +134,27 @@
           </div>
         </div>
       </div>
+    </section>
 
+    <section id="contact" class="contact-section">
+      <h2>Get In Touch</h2>
+      <p class="contact-text">Interested in working together? I'd love to hear from you!</p>
+      <div class="contact-links">
+        <a href="https://github.com/mezishir" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="Visit my GitHub profile">
+          GitHub
+        </a>
+        <a href="mailto:your.email@example.com" class="contact-link" aria-label="Send me an email">
+          Email
+        </a>
+      </div>
+    </section>
+  </main>
 
-        <div class="container">
-            <div class="footer">
-                <p class="copyright">2025. Site created with VSCode by <a href="https://github.com/mezishir">Amber Cruse</a> and hosted on Github.
-                    </p>
-                </div>
-        </div>
-
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p class="copyright">2025. Site created with VSCode by <a href="https://github.com/mezishir">Amber Cruse</a> and hosted on Github.</p>
+    </div>
+  </footer>
 
 </body>
 </html>
