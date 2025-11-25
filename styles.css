@@ -133,22 +133,8 @@ html {
     flex-wrap: wrap;
     margin: 48px 0;
 }
-.web-design-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px;
-  margin: 32px 0;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
-@media (max-width: 768px) {
-    .web-design-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
-}
+
 .card {
     background: rgba(196, 253, 255, 0.288);
     border-radius: 18px;
