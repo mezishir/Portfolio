@@ -59,6 +59,123 @@ function initMagicBackground() {
 // Initialize background on load
 initMagicBackground();
 
+// ========================================
+// FORTUNE TELLING CRYSTAL BALL
+// ========================================
+const fortunes = [
+  "I see... a need for better UX in your future. ✨",
+  "The spirits say... your website needs more personality. 🔮",
+  "I foresee... a collaboration between us. 💫",
+  "The crystal reveals... your users crave intuitive design. 🌙",
+  "Ancient wisdom shows... consistency is the key to your success. ⭐",
+  "The mists clear to show... a mobile-first approach in your destiny. 📱",
+  "I perceive... accessibility will unlock new opportunities. ♿",
+  "The oracle whispers... visual hierarchy will guide your path. 👁️",
+  "Mystical energies indicate... your brand needs a refresh. 🎨",
+  "The stars align to reveal... user research is your greatest ally. 🔬",
+  "I sense... animation will breathe life into your project. 🌟",
+  "The cosmos declares... white space is not empty space. 🌌",
+  "Arcane knowledge shows... typography speaks louder than words. 📝",
+  "The void reveals... performance optimization awaits you. ⚡",
+  "I divine... your call-to-action needs more clarity. 🎯",
+  "The ether suggests... you need a design system. 📚",
+  "Magical forces converge... simplicity is the ultimate sophistication. ✨",
+  "The crystal whispers... your color palette needs harmony. 🎨",
+  "I see in the mist... your journey to great design begins today. 🚀",
+  "The spirits agree... you've found the right designer. 😉"
+];
+
+function showFortune() {
+  const modal = document.getElementById('fortuneModal');
+  const fortuneText = document.getElementById('fortuneText');
+  const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+  
+  fortuneText.textContent = randomFortune;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function hideFortune() {
+  const modal = document.getElementById('fortuneModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Event listeners for fortune telling
+const crystalBallPhoto = document.getElementById('crystalBallPhoto');
+const fortuneClose = document.getElementById('fortuneClose');
+const fortuneAgain = document.getElementById('fortuneAgain');
+const fortuneModal = document.getElementById('fortuneModal');
+
+if (crystalBallPhoto) {
+  crystalBallPhoto.addEventListener('click', showFortune);
+}
+
+if (fortuneClose) {
+  fortuneClose.addEventListener('click', hideFortune);
+}
+
+if (fortuneAgain) {
+  fortuneAgain.addEventListener('click', () => {
+    showFortune();
+  });
+}
+
+if (fortuneModal) {
+  fortuneModal.addEventListener('click', (e) => {
+    if (e.target === fortuneModal) {
+      hideFortune();
+    }
+  });
+  
+  // Mobile swipe to dismiss
+  let touchStartY = 0;
+  let touchEndY = 0;
+  
+  const fortuneContent = fortuneModal.querySelector('.fortune-content');
+  
+  fortuneContent.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+  
+  fortuneContent.addEventListener('touchmove', (e) => {
+    touchEndY = e.touches[0].clientY;
+    const diff = touchEndY - touchStartY;
+    
+    // Visual feedback while swiping
+    if (diff > 0) {
+      fortuneContent.style.transform = `translateY(${diff * 0.5}px)`;
+      fortuneContent.style.opacity = `${1 - (diff / 500)}`;
+    }
+  }, { passive: true });
+  
+  fortuneContent.addEventListener('touchend', () => {
+    const swipeDistance = touchEndY - touchStartY;
+    
+    // If swiped down more than 100px, close modal
+    if (swipeDistance > 100) {
+      hideFortune();
+    }
+    
+    // Reset position
+    fortuneContent.style.transform = '';
+    fortuneContent.style.opacity = '';
+    touchStartY = 0;
+    touchEndY = 0;
+  }, { passive: true });
+}
+
+// Add visual tap feedback for mobile
+if (crystalBallPhoto) {
+  crystalBallPhoto.addEventListener('touchstart', () => {
+    crystalBallPhoto.style.transform = 'scale(0.95)';
+  }, { passive: true });
+  
+  crystalBallPhoto.addEventListener('touchend', () => {
+    crystalBallPhoto.style.transform = '';
+  }, { passive: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   
   // ========================================
@@ -228,12 +345,13 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = constellation.offsetWidth;
     canvas.height = constellation.offsetHeight;
     
+    // Aries constellation pattern (Hamal, Sheratan, Mesarthim, 41 Arietis, and the curve)
     const stars = [
-      { x: 0.3, y: 0.2 },
-      { x: 0.7, y: 0.4 },
-      { x: 0.5, y: 0.7 },
-      { x: 0.2, y: 0.8 },
-      { x: 0.8, y: 0.6 }
+      { x: 0.20, y: 0.40 },  // Hamal (Alpha Arietis - brightest)
+      { x: 0.35, y: 0.30 },  // Sheratan (Beta Arietis)
+      { x: 0.55, y: 0.25 },  // Mesarthim (Gamma Arietis)
+      { x: 0.75, y: 0.35 },  // 41 Arietis
+      { x: 0.85, y: 0.50 }   // Extended curve
     ];
     
     function drawConstellation() {

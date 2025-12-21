@@ -356,6 +356,18 @@ p {
   box-shadow: 0 0 50px rgba(183, 148, 246, 0.6);
   z-index: 2;
   position: relative;
+  transition: all 0.3s ease;
+}
+
+.crystal-ball-trigger {
+  cursor: pointer;
+}
+
+.crystal-ball-trigger:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 60px rgba(183, 148, 246, 0.8),
+              0 0 100px rgba(96, 213, 245, 0.4);
+  filter: brightness(1.1);
 }
 
 .sigil-ring {
@@ -373,6 +385,213 @@ p {
 @keyframes rotateRing {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* ========================================
+   FORTUNE TELLING MODAL
+   ======================================== */
+.fortune-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(13, 2, 33, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+}
+
+.fortune-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.fortune-content {
+  background: linear-gradient(135deg, rgba(45, 27, 78, 0.9), rgba(30, 27, 75, 0.9));
+  border: 2px solid var(--color-accent);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 90%;
+  position: relative;
+  box-shadow: 0 0 60px rgba(183, 148, 246, 0.6),
+              inset 0 0 40px rgba(183, 148, 246, 0.1);
+  animation: modalAppear 0.5s ease-out;
+}
+
+@keyframes modalAppear {
+  from {
+    transform: scale(0.8) translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.fortune-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--color-accent);
+  font-size: 2.5rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fortune-close:hover {
+  color: var(--color-accent-2);
+  transform: rotate(90deg);
+  text-shadow: 0 0 20px var(--color-accent-2);
+}
+
+.crystal-ball-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.crystal-ball {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, 
+              rgba(183, 148, 246, 0.4),
+              rgba(96, 213, 245, 0.3),
+              rgba(13, 2, 33, 0.8));
+  box-shadow: 
+    inset 0 0 60px rgba(183, 148, 246, 0.6),
+    0 0 80px rgba(183, 148, 246, 0.4),
+    0 0 120px rgba(96, 213, 245, 0.3);
+  animation: crystalPulse 4s ease-in-out infinite;
+  overflow: hidden;
+}
+
+@keyframes crystalPulse {
+  0%, 100% {
+    box-shadow: 
+      inset 0 0 60px rgba(183, 148, 246, 0.6),
+      0 0 80px rgba(183, 148, 246, 0.4),
+      0 0 120px rgba(96, 213, 245, 0.3);
+  }
+  50% {
+    box-shadow: 
+      inset 0 0 80px rgba(183, 148, 246, 0.8),
+      0 0 100px rgba(183, 148, 246, 0.6),
+      0 0 150px rgba(96, 213, 245, 0.5);
+  }
+}
+
+.crystal-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 40%,
+              rgba(255, 255, 255, 0.8),
+              transparent 30%);
+  animation: glowShift 3s ease-in-out infinite;
+}
+
+@keyframes glowShift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(-10px, -10px) scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+.crystal-mist {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: 
+    radial-gradient(ellipse at 60% 60%, rgba(183, 148, 246, 0.3), transparent),
+    radial-gradient(ellipse at 40% 70%, rgba(96, 213, 245, 0.2), transparent);
+  animation: mistSwirl 6s linear infinite;
+  filter: blur(8px);
+}
+
+@keyframes mistSwirl {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fortune-title {
+  font-family: "Metamorphous", serif;
+  color: var(--color-accent);
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 20px rgba(183, 148, 246, 0.6);
+  animation: titleGlow 2s ease-in-out infinite;
+}
+
+@keyframes titleGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(183, 148, 246, 0.6);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(183, 148, 246, 0.9);
+  }
+}
+
+.fortune-text {
+  font-family: "Cinzel", serif;
+  color: var(--color-text);
+  text-align: center;
+  font-size: 1.3rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fortune-again {
+  display: block;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-2));
+  color: var(--color-bg);
+  border: none;
+  border-radius: 12px;
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(183, 148, 246, 0.4);
+}
+
+.fortune-again:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 30px rgba(183, 148, 246, 0.6);
+}
+
+.fortune-again:active {
+  transform: translateY(-1px);
 }
 
 /* ========================================
@@ -494,11 +713,11 @@ p {
   width: 100%;
   height: 100%;
   background-image: 
-    radial-gradient(3px 3px at 30% 20%, var(--color-accent), transparent),
-    radial-gradient(2px 2px at 70% 40%, var(--color-accent-2), transparent),
-    radial-gradient(3px 3px at 50% 70%, var(--color-accent-gold), transparent),
-    radial-gradient(2px 2px at 20% 80%, var(--color-accent), transparent),
-    radial-gradient(3px 3px at 80% 60%, var(--color-accent-2), transparent);
+    radial-gradient(4px 4px at 20% 40%, var(--color-accent-gold), transparent),
+    radial-gradient(3px 3px at 35% 30%, var(--color-accent), transparent),
+    radial-gradient(3px 3px at 55% 25%, var(--color-accent-2), transparent),
+    radial-gradient(2px 2px at 75% 35%, var(--color-accent), transparent),
+    radial-gradient(2px 2px at 85% 50%, var(--color-accent-2), transparent);
   background-size: 100% 100%;
   animation: twinkle 4s ease-in-out infinite;
 }
@@ -689,6 +908,54 @@ p {
     height: 250px;
   }
   
+  /* Mobile fortune modal optimizations */
+  .fortune-content {
+    padding: 2rem 1.5rem;
+    max-width: 95%;
+    border-radius: 20px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  
+  .crystal-ball {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .fortune-title {
+    font-size: 1.5rem;
+  }
+  
+  .fortune-text {
+    font-size: 1.1rem;
+    min-height: 100px;
+  }
+  
+  .fortune-close {
+    width: 44px;
+    height: 44px;
+    font-size: 2rem;
+  }
+  
+  .fortune-again {
+    width: 100%;
+    padding: 1.2rem;
+    font-size: 1.1rem;
+  }
+  
+  /* Add swipe indicator */
+  .fortune-content::before {
+    content: '';
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+  
   .about-content {
     grid-template-columns: 1fr;
     text-align: center;
@@ -728,5 +995,27 @@ p {
   
   .projects-grid {
     grid-template-columns: 1fr;
+  }
+  
+  /* Enhanced mobile touch targets */
+  .crystal-ball-trigger {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  .fortune-content {
+    padding: 1.5rem 1rem;
+  }
+  
+  .crystal-ball {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .fortune-title {
+    font-size: 1.3rem;
+  }
+  
+  .fortune-text {
+    font-size: 1rem;
   }
 }
