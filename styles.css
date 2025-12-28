@@ -1,20 +1,14 @@
 @import "tailwindcss";
 
-/* ========================================
-   MODERN MAGE THEME
-   Color Palette: Deep purples, midnight navy, 
-   lavender, cyan, gold accents
-   ======================================== */
-
 :root {
-  --color-primary: #1a0a2e;        /* Deep midnight */
-  --color-secondary: #2d1b4e;      /* Dark purple */
-  --color-accent: #b794f6;         /* Lavender glow */
-  --color-accent-2: #60d5f5;       /* Cyan spark */
-  --color-accent-gold: #ffd700;    /* Gold highlight */
-  --color-text: #e0e0e0;           /* Light gray */
-  --color-text-muted: #a0a0b0;     /* Muted gray */
-  --color-bg: #0d0221;             /* Ultra dark base */
+  --color-primary: #1a0a2e;
+  --color-secondary: #2d1b4e;
+  --color-accent: #b794f6;
+  --color-accent-2: #60d5f5;
+  --color-accent-gold: #ffd700;
+  --color-text: #e0e0e0;
+  --color-text-muted: #a0a0b0;
+  --color-bg: #0d0221;
 }
 
 /* fonts */
@@ -38,9 +32,7 @@
   font-style: normal;
 }
 
-/* ========================================
-   BASE STYLES
-   ======================================== */
+
 * {
   margin: 0;
   padding: 0;
@@ -61,9 +53,7 @@ body {
   overflow-x: hidden;
 }
 
-/* ========================================
-   ANIMATED MAGIC BACKGROUND
-   ======================================== */
+
 .magic-background {
   position: fixed;
   inset: 0;
@@ -77,9 +67,9 @@ body {
   inset: 0;
   background: linear-gradient(
     135deg, 
-    rgb(30, 27, 75) 0%,     /* indigo-950 */
-    rgb(59, 7, 100) 50%,    /* purple-950 */
-    rgb(15, 23, 42) 100%    /* slate-950 */
+    rgb(30, 27, 75) 0%,
+    rgb(59, 7, 100) 50%,
+    rgb(15, 23, 42) 100%
   );
 }
 
@@ -91,7 +81,7 @@ body {
   height: 100%;
 }
 
-/* Floating orbs */
+
 .floating-orb {
   position: absolute;
   border-radius: 50%;
@@ -115,12 +105,12 @@ body {
   }
 }
 
-/* Twinkling stars */
+
 .particle-star {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: rgb(216, 180, 254); /* purple-300 */
+  background: rgb(216, 180, 254);
   border-radius: 50%;
   animation: twinkleEnhanced 3s ease-in-out infinite;
   box-shadow: 0 0 4px rgba(216, 180, 254, 0.8);
@@ -886,9 +876,7 @@ p {
   font-size: 0.9rem;
 }
 
-/* ========================================
-   RESPONSIVE DESIGN
-   ======================================== */
+/* Mobile optimizations */
 @media (max-width: 968px) {
   .hero-content {
     grid-template-columns: 1fr;
@@ -908,7 +896,7 @@ p {
     height: 250px;
   }
   
-  /* Mobile fortune modal optimizations */
+  
   .fortune-content {
     padding: 2rem 1.5rem;
     max-width: 95%;
@@ -942,7 +930,7 @@ p {
     font-size: 1.1rem;
   }
   
-  /* Add swipe indicator */
+
   .fortune-content::before {
     content: '';
     position: absolute;
@@ -997,7 +985,7 @@ p {
     grid-template-columns: 1fr;
   }
   
-  /* Enhanced mobile touch targets */
+ 
   .crystal-ball-trigger {
     -webkit-tap-highlight-color: transparent;
   }
