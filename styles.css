@@ -678,6 +678,21 @@ p {
 }
 
 /* ========================================
+   GAMES SECTION: THE ADVENTURE VAULT
+   ======================================== */
+.games-section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+/* ========================================
    ABOUT SECTION: THE LORE SCROLL
    ======================================== */
 .about-section {
